@@ -61,11 +61,9 @@ All necessary application files have been created:
 
 ### Source Code
 - `src/components/UserGenerator.tsx` - Main user interface
-- `src/components/AdminPanel.tsx` - Admin configuration interface
-- `src/components/PasswordGuard.tsx` - Admin authentication
 - `src/lib/types.ts` - TypeScript interfaces
-- `src/lib/storage.ts` - localStorage management
-- `src/lib/utils.ts` - Utility functions
+- `src/lib/storage.ts` - Fetches `public/config.json` (single source of truth — see [MANUAL.md](./MANUAL.md))
+- `src/lib/utils.ts` - Rule engine / URL generation
 - `src/App.tsx` - Main app component
 - `src/index.css` - Tailwind CSS imports
 - `src/main.tsx` - Entry point
@@ -106,12 +104,8 @@ npm run preview
 - Generate complete URL
 - Copy to clipboard
 
-### Admin Panel (password: "admin123")
-- Manage UTM fields
-- Configure field options
-- Set dependency rules
-- Export/import configuration
-- Change admin password
+There is no admin panel — UTM rules are edited directly in `public/config.json` and
+deployed via git. See [MANUAL.md](./MANUAL.md) for the step-by-step guide.
 
 ## Troubleshooting npm Issues
 
@@ -132,37 +126,16 @@ npm run preview
 
 ## Deployment
 
-### Vercel (Recommended)
-1. Push code to GitHub
-2. Connect repository to Vercel
-3. Deploy with default settings
-4. Visit your deployed URL
-
-### Netlify
-1. Push code to GitHub
-2. Connect to Netlify
-3. Set build command: `npm run build`
-4. Set publish directory: `dist`
-
-### Cloudflare Pages
-1. Push code to GitHub
-2. Create new project in Cloudflare Pages
-3. Select the GitHub repository
-4. Use default build settings
+Deployed automatically to **GitHub Pages** on every push to `main` via
+`.github/workflows/deploy.yml`. See [DEPLOY.md](./DEPLOY.md) for details.
 
 ## Environment Notes
 
 - Node version: 20 or higher
 - npm version: 10 or higher
-- No backend required (fully client-side)
-- Uses localStorage for configuration persistence
+- No backend required (fully client-side, static hosting)
+- Rules live in `public/config.json`, edited via git — see [MANUAL.md](./MANUAL.md)
 - Dark theme optimized for readability
-
-## Configuration
-
-Default admin password: `admin123`
-
-Change it in the admin panel immediately after first login.
 
 ## Support
 

@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Copy, Check, Info, AlertCircle, AlertTriangle, ShieldAlert } from 'lucide-react';
-import { loadConfigAsync, loadConfig } from '../lib/storage';
+import { loadConfig } from '../lib/storage';
 import {
   generateUTMUrl,
   getAvailableOptionsForField,
@@ -14,12 +14,13 @@ import {
   evaluateSourceCondition,
 } from '../lib/utils';
 import { translations } from '../lib/translations';
-import type { UTMFieldState } from '../lib/types';
+import type { AppConfig, UTMFieldState } from '../lib/types';
+import { DEFAULT_CONFIG } from '../lib/types';
 import { Tooltip } from './Tooltip';
 import { RuleIndicator } from './RuleIndicator';
 
 export function UserGenerator() {
-  const [config, setConfig] = useState(loadConfig());
+  const [config, setConfig] = useState<AppConfig>(DEFAULT_CONFIG);
   const [baseUrl, setBaseUrl] = useState('');
   const [selectedValues, setSelectedValues] = useState<Record<string, string>>({});
   const [copied, setCopied] = useState(false);
@@ -28,7 +29,7 @@ export function UserGenerator() {
   const [fieldStates, setFieldStates] = useState<Record<string, UTMFieldState>>({});
 
   useEffect(() => {
-    loadConfigAsync().then(setConfig);
+    loadConfig().then(setConfig);
   }, []);
 
   // Cleanup timeouts on unmount
