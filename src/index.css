@@ -2,6 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Design tokens — ported from 01.plan_type_parametrizador so this tool matches
+   the rest of the Claro internal tooling family. Light by default; dark via
+   [data-theme="dark"] on <html>, toggled and persisted by ThemeToggle. */
+:root {
+  --bg: #f8f9fa;
+  --panel: #ffffff;
+  --panel-2: #f3f3f5;
+  --line: #e5e7eb;
+  --line-soft: #f3f4f6;
+  --text: #030213;
+  --muted: #717182;
+  --red: #E63027;
+  --red-hover: #CC2922;
+  --red-dim: #fef2f2;
+  --green: #16a34a;
+  --green-bg: #f0fdf4;
+  --amber: #b45309;
+  --amber-bg: #fef9c3;
+  --shadow: 0 1px 3px rgba(0, 0, 0, .05);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, .1);
+
+  --sans: 'Barlow', -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --display: 'Barlow Condensed', var(--sans);
+  --mono: 'SF Mono', 'JetBrains Mono', Consolas, Menlo, monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #0f1115;
+  --panel: #161920;
+  --panel-2: #1d212b;
+  --line: #2a2f3a;
+  --line-soft: #232834;
+  --text: #e7e9ee;
+  --muted: #8b93a3;
+  --red-dim: #5a1015;
+  --green: #3fc98a;
+  --green-bg: #0f1f19;
+  --amber: #e8a33d;
+  --amber-bg: #241d10;
+  --shadow: none;
+  --shadow-hover: none;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,18 +52,232 @@
 }
 
 body {
-  font-family: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3 {
-  font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+  font-family: var(--display);
 }
 
 #root {
   width: 100%;
   margin: 0 auto;
 }
+
+/* ---- Reusable component classes (mirrors plan-type-parametrizador) ---- */
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+.header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.logo-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--text);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.title {
+  font-family: var(--display);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+.subtitle {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.theme-toggle {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { border-color: var(--red); }
+
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: start;
+}
+@media (min-width: 820px) {
+  .grid-2col {
+    grid-template-columns: 1.15fr .85fr;
+  }
+}
+
+.output-col {
+  position: sticky;
+  top: 20px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+.card + .card { margin-top: 16px; }
+
+.card h2 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.field { margin-bottom: 16px; }
+.field:last-child { margin-bottom: 0; }
+
+.field label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.field .hint {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.field .hint.err { color: var(--red); }
+
+.field select,
+.field input[type="text"],
+.field input[type="url"],
+.field input[type="number"] {
+  width: 100%;
+  padding: 9px 10px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  transition: border-color .15s;
+}
+.field select:focus,
+.field input:focus {
+  outline: none;
+  border-color: var(--red);
+}
+.field select.attn,
+.field input.attn {
+  border-color: var(--amber);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.badge.req { background: var(--red-dim); color: var(--red); }
+.badge.opt { background: var(--line-soft); color: var(--muted); }
+.badge.rule { background: var(--amber-bg); color: var(--amber); }
+
+.out-box {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  word-break: break-all;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  min-height: 44px;
+  color: var(--text);
+}
+.out-box.empty { color: var(--muted); font-style: italic; }
+
+.copy-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--red);
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background .15s, border-color .15s;
+}
+.copy-btn:hover:not(:disabled) { background: var(--red-hover); }
+.copy-btn:disabled { background: var(--line-soft); color: var(--muted); cursor: not-allowed; }
+.copy-btn.copied { background: var(--green); }
+
+.alert {
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 12.5px;
+  border: 1px solid;
+  margin-bottom: 16px;
+}
+.alert.error {
+  background: var(--red-dim);
+  border-color: var(--red);
+  color: var(--red);
+}
+.alert.warning {
+  background: var(--amber-bg);
+  border-color: var(--amber);
+  color: var(--amber);
+}
+.alert ul { margin: 6px 0 0 18px; list-style: disc; }

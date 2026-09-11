@@ -69,10 +69,14 @@ export function Tooltip({ content, children, position = 'top' }: TooltipProps) {
       {isVisible && (
         <div
           ref={tooltipRef}
-          className="fixed z-50 px-3 py-2 text-sm bg-gray-800 text-gray-100 rounded-lg border border-gray-700 whitespace-nowrap shadow-lg pointer-events-none"
+          className="fixed z-50 px-3 py-2 text-sm rounded-lg shadow-lg pointer-events-none"
           style={{
             top: `${tooltipPos.top}px`,
             left: `${tooltipPos.left}px`,
+            background: 'var(--text)',
+            color: 'var(--bg)',
+            maxWidth: '260px',
+            whiteSpace: 'normal',
           }}
         >
           {content}
