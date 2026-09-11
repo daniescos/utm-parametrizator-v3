@@ -1,0 +1,369 @@
+{
+  "version": 1,
+  "fields": [
+    {
+      "id": "source",
+      "name": "utm_source",
+      "label": "Canal (Source)",
+      "fieldType": "dropdown",
+      "options": ["app_unificado", "app_residencial", "site_minhas", "dma", "cautivo", "totem"],
+      "order": 10,
+      "isCustom": false,
+      "defaultRequired": true,
+      "group": "utm_source",
+      "sectionTitle": "1 · Origem (Source)",
+      "description": "Canal/veículo onde o anúncio é veiculado."
+    },
+    {
+      "id": "estado",
+      "name": "utm_source_estado",
+      "label": "Estado (Totem)",
+      "fieldType": "dropdown",
+      "options": ["sp", "rj", "mg"],
+      "order": 11,
+      "isCustom": false,
+      "defaultVisible": false,
+      "group": "utm_source",
+      "description": "Obrigatório apenas quando Source = totem."
+    },
+    {
+      "id": "cidade",
+      "name": "utm_source_cidade",
+      "label": "Cidade (Totem)",
+      "fieldType": "dropdown",
+      "options": ["sao_paulo", "ribeirao_preto", "campinas", "rio_de_janeiro", "volta_redonda", "belo_horizonte", "3_coracoes", "adamantina"],
+      "order": 12,
+      "isCustom": false,
+      "defaultVisible": false,
+      "group": "utm_source",
+      "description": "Filtrada pelo Estado selecionado."
+    },
+    {
+      "id": "loja",
+      "name": "utm_source_loja",
+      "label": "Loja (Totem)",
+      "fieldType": "dropdown",
+      "options": [
+        "loja1_sp", "loja2_sp", "loja3_sp",
+        "loja1_rp", "loja2_rp", "loja3_rp",
+        "loja1_cp", "loja2_cp", "loja3_cp",
+        "loja1_rj", "loja2_rj", "loja3_rj",
+        "loja1_vr", "loja2_vr", "loja3_vr",
+        "loja1_bh", "loja2_bh", "loja3_bh",
+        "loja1_tc", "loja2_tc", "loja3_tc",
+        "loja1_ad", "loja2_ad", "loja3_ad"
+      ],
+      "order": 13,
+      "isCustom": false,
+      "defaultVisible": false,
+      "group": "utm_source",
+      "description": "Filtrada pela Cidade selecionada."
+    },
+    {
+      "id": "jornada",
+      "name": "utm_source_jornada",
+      "label": "Jornada (Site Minhas Claro)",
+      "fieldType": "dropdown",
+      "options": [
+        "acesso_rapido", "consulta_internet", "dash_pre", "dash_pos", "dash_controle_facil",
+        "dash_controle_tradicional", "dash_residencial", "dash_combo_multi",
+        "fale_com_a_claro_movel", "fatura_facil", "pme_fatura_facil",
+        "pme_home", "faq_404", "faq_homedynamic", "faq_news_categoria",
+        "faq_news_conteudos", "faq_news_home", "faq_pagina_principal", "faq_pesquisa"
+      ],
+      "order": 14,
+      "isCustom": false,
+      "defaultVisible": false,
+      "group": "utm_source",
+      "description": "Visível apenas quando Source = site_minhas."
+    },
+    {
+      "id": "logado",
+      "name": "utm_source_logado",
+      "label": "Logado?",
+      "fieldType": "dropdown",
+      "options": ["logado", "nao_logado"],
+      "order": 15,
+      "isCustom": false,
+      "defaultVisible": false,
+      "group": "utm_source",
+      "description": "Visível apenas quando Source = site_minhas."
+    },
+
+    {
+      "id": "ferramenta",
+      "name": "utm_medium_ferramenta",
+      "label": "Ferramenta",
+      "fieldType": "dropdown",
+      "options": ["gam", "hardcode", "gerenciador", "pzn", "admintotem", "journey_builder"],
+      "order": 20,
+      "isCustom": false,
+      "defaultRequired": true,
+      "group": "utm_medium",
+      "sectionTitle": "2 · Ferramenta, Formato e Posição (Medium)",
+      "description": "Ferramenta usada para veicular a campanha. Opções variam conforme o Source."
+    },
+    {
+      "id": "formato",
+      "name": "utm_medium_formato",
+      "label": "Formato",
+      "fieldType": "dropdown",
+      "options": [
+        "banner", "deck_de_vendas", "fsc", "hub", "bnn", "psh", "card_web", "codeless",
+        "splas_first_screen", "bnn_web", "sms", "rcs", "push_notification", "whatsapp",
+        "wibpush", "email", "banner_rodape", "aftercall", "raspadinha", "banner_superior"
+      ],
+      "order": 21,
+      "isCustom": false,
+      "defaultRequired": true,
+      "group": "utm_medium",
+      "description": "Filtrado pela Ferramenta (e pelo Source, no caso de DMA/PZN)."
+    },
+    {
+      "id": "bloco",
+      "name": "utm_medium_bloco",
+      "label": "Bloco/Posição",
+      "fieldType": "dropdown",
+      "options": [
+        "tp", "md", "ft", "direita_codeless", "esquerda_codeless", "cima_codeless",
+        "baixo_codeless", "firsc_screen_codeless", "navegue_por_categoria",
+        "navegue_por_categoria_vitrine", "banner_deck", "mais_ofertas",
+        "multiplas_vitrines", "ofertas_exclusivas", "menu_fabricante",
+        "carrossel_aparelhos", "carrossel_acessorio", "sessao_claro_flex", "carrossel_planos"
+      ],
+      "order": 22,
+      "isCustom": false,
+      "defaultRequired": false,
+      "group": "utm_medium",
+      "description": "Filtrado pela combinação Ferramenta + Formato. Nem toda combinação tem bloco aplicável."
+    },
+
+    {
+      "id": "parceiro",
+      "name": "utm_campaign_parceiro",
+      "label": "Parceiro",
+      "fieldType": "string",
+      "options": [],
+      "order": 30,
+      "isCustom": false,
+      "group": "utm_campaign",
+      "sectionTitle": "3 · Campanha (Campaign)",
+      "description": "Parceiro/martech responsável (ex: mtc). Lista fechada ainda não recebida — hoje é texto livre; peça ao time de Martech a lista oficial de parceiros para transformarmos em dropdown."
+    },
+    {
+      "id": "categoria",
+      "name": "utm_campaign_categoria",
+      "label": "O que estou vendendo? (Categoria)",
+      "fieldType": "dropdown",
+      "options": [
+        "pacote_de_dados", "migracao_pre_controle", "migracao_controle_conta",
+        "movimentacao_conta_upgrade", "movimentacao_controle_upgrade", "gross_controle",
+        "gross_conta", "banda_larga", "aparelhos", "acessorios", "flex", "portabilidade",
+        "beneficios", "outros"
+      ],
+      "order": 31,
+      "isCustom": false,
+      "defaultRequired": true,
+      "group": "utm_campaign",
+      "description": "Categoria do produto/serviço vendido."
+    },
+    {
+      "id": "regionalizacao",
+      "name": "utm_campaign_regionalizacao",
+      "label": "Regionalização",
+      "fieldType": "string",
+      "options": [],
+      "order": 32,
+      "isCustom": false,
+      "group": "utm_campaign",
+      "description": "Recorte regional da campanha (ex: rne, spi). Lista fechada ainda não recebida — hoje é texto livre; peça ao time de Martech a lista oficial de regiões para transformarmos em dropdown."
+    },
+    {
+      "id": "segmento_bl",
+      "name": "utm_campaign_segmento_bl",
+      "label": "Segmento de BL",
+      "fieldType": "dropdown",
+      "options": ["multi", "delta", "single"],
+      "order": 33,
+      "isCustom": false,
+      "defaultVisible": false,
+      "group": "utm_campaign",
+      "description": "Visível apenas quando Categoria = banda_larga."
+    },
+    {
+      "id": "nome_oferta",
+      "name": "utm_campaign_produto_servico",
+      "label": "Produto/Serviço (Nome da oferta)",
+      "fieldType": "string",
+      "options": [],
+      "order": 34,
+      "isCustom": false,
+      "defaultRequired": true,
+      "group": "utm_campaign",
+      "description": "Nome específico da campanha/oferta."
+    },
+    {
+      "id": "valor",
+      "name": "utm_campaign_valor",
+      "label": "Valor (opcional)",
+      "fieldType": "string",
+      "options": [],
+      "order": 35,
+      "isCustom": false,
+      "group": "utm_campaign",
+      "pattern": "^\\d+_\\d{2}$",
+      "patternErrorMessage": "Formato esperado: reais_centavos, ex: 50_00",
+      "description": "Preencha só se a campanha tiver valor promocional. Formato: reais_centavos (ex: 50_00)."
+    },
+    {
+      "id": "versao",
+      "name": "utm_campaign_versao",
+      "label": "Versão (opcional)",
+      "fieldType": "string",
+      "options": [],
+      "order": 36,
+      "isCustom": false,
+      "group": "utm_campaign",
+      "description": "Identificador de versão/teste A-B da campanha, se aplicável."
+    },
+
+    {
+      "id": "posse",
+      "name": "utm_term",
+      "label": "Público (Posse/Jornada)",
+      "fieldType": "dropdown",
+      "options": [
+        "conta", "controle", "pre_pago", "flex", "combo_multi_controle",
+        "combo_multi_conta", "banda_larga_single", "banda_larga_pme"
+      ],
+      "order": 40,
+      "isCustom": false,
+      "defaultRequired": true,
+      "sectionTitle": "4 · Público (Term)",
+      "description": "Para quem estou ofertando?"
+    },
+
+    {
+      "id": "content",
+      "name": "utm_content",
+      "label": "Content (Agrupamento de Canais)",
+      "fieldType": "string",
+      "options": [],
+      "order": 50,
+      "isCustom": false,
+      "sectionTitle": "5 · Content",
+      "description": "Agrupamento de canais/jornada (ex: minha-claro, seq-canais, abandono-carrinho). Texto livre."
+    },
+
+    {
+      "id": "id",
+      "name": "utm_id",
+      "label": "ID (Affiliate ID ou OS)",
+      "fieldType": "string",
+      "options": [],
+      "order": 60,
+      "isCustom": false,
+      "defaultVisible": false,
+      "sectionTitle": "6 · Identificador (ID)",
+      "pattern": "^(\\d{5}|[A-Za-z0-9]{4,20})$",
+      "patternErrorMessage": "Informe a OS (exatamente 5 dígitos) ou o Affiliate ID (alfanumérico).",
+      "description": "Obrigatório apenas para campanhas PZN e Journey Builder — aceita OS (5 dígitos) ou Affiliate ID alfanumérico."
+    }
+  ],
+  "dependencies": [
+    { "id": "estado-cidade-sp", "ruleType": "filter", "priority": 50, "sourceField": "estado", "sourceValue": "sp", "sourceCondition": "equals", "targetField": "cidade", "targetFieldType": "dropdown", "allowedValues": ["sao_paulo", "ribeirao_preto", "campinas"] },
+    { "id": "estado-cidade-rj", "ruleType": "filter", "priority": 50, "sourceField": "estado", "sourceValue": "rj", "sourceCondition": "equals", "targetField": "cidade", "targetFieldType": "dropdown", "allowedValues": ["rio_de_janeiro", "volta_redonda"] },
+    { "id": "estado-cidade-mg", "ruleType": "filter", "priority": 50, "sourceField": "estado", "sourceValue": "mg", "sourceCondition": "equals", "targetField": "cidade", "targetFieldType": "dropdown", "allowedValues": ["belo_horizonte", "3_coracoes", "adamantina"] },
+
+    { "id": "cidade-loja-sp", "ruleType": "filter", "priority": 50, "sourceField": "cidade", "sourceValue": "sao_paulo", "sourceCondition": "equals", "targetField": "loja", "targetFieldType": "dropdown", "allowedValues": ["loja1_sp", "loja2_sp", "loja3_sp"] },
+    { "id": "cidade-loja-rp", "ruleType": "filter", "priority": 50, "sourceField": "cidade", "sourceValue": "ribeirao_preto", "sourceCondition": "equals", "targetField": "loja", "targetFieldType": "dropdown", "allowedValues": ["loja1_rp", "loja2_rp", "loja3_rp"] },
+    { "id": "cidade-loja-cp", "ruleType": "filter", "priority": 50, "sourceField": "cidade", "sourceValue": "campinas", "sourceCondition": "equals", "targetField": "loja", "targetFieldType": "dropdown", "allowedValues": ["loja1_cp", "loja2_cp", "loja3_cp"] },
+    { "id": "cidade-loja-rj", "ruleType": "filter", "priority": 50, "sourceField": "cidade", "sourceValue": "rio_de_janeiro", "sourceCondition": "equals", "targetField": "loja", "targetFieldType": "dropdown", "allowedValues": ["loja1_rj", "loja2_rj", "loja3_rj"] },
+    { "id": "cidade-loja-vr", "ruleType": "filter", "priority": 50, "sourceField": "cidade", "sourceValue": "volta_redonda", "sourceCondition": "equals", "targetField": "loja", "targetFieldType": "dropdown", "allowedValues": ["loja1_vr", "loja2_vr", "loja3_vr"] },
+    { "id": "cidade-loja-bh", "ruleType": "filter", "priority": 50, "sourceField": "cidade", "sourceValue": "belo_horizonte", "sourceCondition": "equals", "targetField": "loja", "targetFieldType": "dropdown", "allowedValues": ["loja1_bh", "loja2_bh", "loja3_bh"] },
+    { "id": "cidade-loja-tc", "ruleType": "filter", "priority": 50, "sourceField": "cidade", "sourceValue": "3_coracoes", "sourceCondition": "equals", "targetField": "loja", "targetFieldType": "dropdown", "allowedValues": ["loja1_tc", "loja2_tc", "loja3_tc"] },
+    { "id": "cidade-loja-ad", "ruleType": "filter", "priority": 50, "sourceField": "cidade", "sourceValue": "adamantina", "sourceCondition": "equals", "targetField": "loja", "targetFieldType": "dropdown", "allowedValues": ["loja1_ad", "loja2_ad", "loja3_ad"] },
+
+    { "id": "totem-show-estado", "ruleType": "visibility", "priority": 10, "sourceField": "source", "sourceValue": "totem", "sourceCondition": "equals", "targetField": "estado", "visibilityAction": "show" },
+    { "id": "totem-show-cidade", "ruleType": "visibility", "priority": 10, "sourceField": "source", "sourceValue": "totem", "sourceCondition": "equals", "targetField": "cidade", "visibilityAction": "show" },
+    { "id": "totem-show-loja", "ruleType": "visibility", "priority": 10, "sourceField": "source", "sourceValue": "totem", "sourceCondition": "equals", "targetField": "loja", "visibilityAction": "show" },
+    { "id": "totem-require-estado", "ruleType": "required", "priority": 10, "sourceField": "source", "sourceValue": "totem", "sourceCondition": "equals", "targetField": "estado", "requiredAction": "make_required" },
+    { "id": "totem-require-cidade", "ruleType": "required", "priority": 10, "sourceField": "source", "sourceValue": "totem", "sourceCondition": "equals", "targetField": "cidade", "requiredAction": "make_required" },
+    { "id": "totem-require-loja", "ruleType": "required", "priority": 10, "sourceField": "source", "sourceValue": "totem", "sourceCondition": "equals", "targetField": "loja", "requiredAction": "make_required" },
+
+    { "id": "siteminhas-show-jornada", "ruleType": "visibility", "priority": 10, "sourceField": "source", "sourceValue": "site_minhas", "sourceCondition": "equals", "targetField": "jornada", "visibilityAction": "show" },
+    { "id": "siteminhas-show-logado", "ruleType": "visibility", "priority": 10, "sourceField": "source", "sourceValue": "site_minhas", "sourceCondition": "equals", "targetField": "logado", "visibilityAction": "show" },
+
+    { "id": "ferramenta-por-source-dma", "ruleType": "filter", "priority": 50, "sourceField": "source", "sourceValue": "dma", "sourceCondition": "equals", "targetField": "ferramenta", "targetFieldType": "dropdown", "allowedValues": ["gerenciador", "hardcode"], "explanation": "DMA só permite Gerenciador e Hardcode." },
+    { "id": "ferramenta-por-source-cautivo", "ruleType": "filter", "priority": 50, "sourceField": "source", "sourceValue": "cautivo", "sourceCondition": "equals", "targetField": "ferramenta", "targetFieldType": "dropdown", "allowedValues": ["gam", "hardcode", "gerenciador", "admintotem", "journey_builder"], "explanation": "PZN não disponível para Cautivo." },
+    { "id": "ferramenta-por-source-totem", "ruleType": "filter", "priority": 50, "sourceField": "source", "sourceValue": "totem", "sourceCondition": "equals", "targetField": "ferramenta", "targetFieldType": "dropdown", "allowedValues": ["gam", "hardcode", "gerenciador", "admintotem", "journey_builder"], "explanation": "PZN não disponível para Totem." },
+    { "id": "ferramenta-por-source-app-residencial", "ruleType": "filter", "priority": 50, "sourceField": "source", "sourceValue": "app_residencial", "sourceCondition": "equals", "targetField": "ferramenta", "targetFieldType": "dropdown", "allowedValues": ["gam", "hardcode", "gerenciador", "admintotem", "journey_builder"], "explanation": "PZN não disponível para App Residencial." },
+
+    { "id": "formato-gam", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "gam", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["banner", "codeless"] },
+    { "id": "formato-journey-builder", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "journey_builder", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["sms", "rcs", "push_notification", "whatsapp", "wibpush", "email"] },
+
+    { "id": "formato-hardcode-appunificado", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "hardcode", "sourceField2": "source", "sourceValue2": "app_unificado", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["banner", "deck_de_vendas"] },
+    { "id": "formato-hardcode-appresidencial", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "hardcode", "sourceField2": "source", "sourceValue2": "app_residencial", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["banner", "deck_de_vendas"] },
+    { "id": "formato-hardcode-siteminhas", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "hardcode", "sourceField2": "source", "sourceValue2": "site_minhas", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["banner", "deck_de_vendas"] },
+    { "id": "formato-hardcode-cautivo", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "hardcode", "sourceField2": "source", "sourceValue2": "cautivo", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["banner", "deck_de_vendas"] },
+    { "id": "formato-hardcode-totem", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "hardcode", "sourceField2": "source", "sourceValue2": "totem", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["banner", "deck_de_vendas"] },
+    { "id": "formato-hardcode-dma", "ruleType": "filter", "priority": 60, "sourceField": "ferramenta", "sourceValue": "hardcode", "sourceField2": "source", "sourceValue2": "dma", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["banner_rodape", "aftercall", "raspadinha"], "explanation": "Formatos específicos de Hardcode em DMA." },
+
+    { "id": "formato-gerenciador-appunificado", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "gerenciador", "sourceField2": "source", "sourceValue2": "app_unificado", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["banner", "splas_first_screen", "deck_de_vendas"] },
+    { "id": "formato-gerenciador-appresidencial", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "gerenciador", "sourceField2": "source", "sourceValue2": "app_residencial", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["banner", "splas_first_screen", "deck_de_vendas"] },
+    { "id": "formato-gerenciador-siteminhas", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "gerenciador", "sourceField2": "source", "sourceValue2": "site_minhas", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["banner", "splas_first_screen", "deck_de_vendas"] },
+    { "id": "formato-gerenciador-cautivo", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "gerenciador", "sourceField2": "source", "sourceValue2": "cautivo", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["banner", "splas_first_screen", "deck_de_vendas"] },
+    { "id": "formato-gerenciador-totem", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "gerenciador", "sourceField2": "source", "sourceValue2": "totem", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["banner", "splas_first_screen", "deck_de_vendas"] },
+    { "id": "formato-gerenciador-dma", "ruleType": "filter", "priority": 60, "sourceField": "ferramenta", "sourceValue": "gerenciador", "sourceField2": "source", "sourceValue2": "dma", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["banner_superior"], "explanation": "Formato específico de Gerenciador em DMA." },
+
+    { "id": "formato-pzn-siteminhas", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "pzn", "sourceField2": "source", "sourceValue2": "site_minhas", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["bnn_web", "card_web"] },
+    { "id": "formato-pzn-appunificado", "ruleType": "filter", "priority": 40, "sourceField": "ferramenta", "sourceValue": "pzn", "sourceField2": "source", "sourceValue2": "app_unificado", "sourceCondition": "equals", "targetField": "formato", "targetFieldType": "dropdown", "allowedValues": ["bnn", "fsc", "hub", "psh"] },
+
+    { "id": "admintotem-hide-formato", "ruleType": "visibility", "priority": 40, "sourceField": "ferramenta", "sourceValue": "admintotem", "sourceCondition": "equals", "targetField": "formato", "visibilityAction": "hide", "explanation": "AdminTotem não usa Formato nem Bloco." },
+    { "id": "admintotem-hide-bloco", "ruleType": "visibility", "priority": 40, "sourceField": "ferramenta", "sourceValue": "admintotem", "sourceCondition": "equals", "targetField": "bloco", "visibilityAction": "hide" },
+    { "id": "pzn-hide-bloco", "ruleType": "visibility", "priority": 40, "sourceField": "ferramenta", "sourceValue": "pzn", "sourceCondition": "equals", "targetField": "bloco", "visibilityAction": "hide", "explanation": "PZN não usa Bloco/Posição." },
+    { "id": "jb-hide-bloco", "ruleType": "visibility", "priority": 40, "sourceField": "ferramenta", "sourceValue": "journey_builder", "sourceCondition": "equals", "targetField": "bloco", "visibilityAction": "hide", "explanation": "Journey Builder não usa Bloco/Posição." },
+
+    { "id": "bloco-gam-banner", "ruleType": "filter", "priority": 30, "sourceField": "formato", "sourceValue": "banner", "sourceField2": "ferramenta", "sourceValue2": "gam", "sourceCondition": "equals", "targetField": "bloco", "targetFieldType": "dropdown", "allowedValues": ["tp", "md", "ft"] },
+    { "id": "bloco-gam-codeless", "ruleType": "filter", "priority": 30, "sourceField": "formato", "sourceValue": "codeless", "sourceField2": "ferramenta", "sourceValue2": "gam", "sourceCondition": "equals", "targetField": "bloco", "targetFieldType": "dropdown", "allowedValues": ["baixo_codeless", "firsc_screen_codeless"] },
+    { "id": "bloco-hardcode-banner", "ruleType": "filter", "priority": 30, "sourceField": "formato", "sourceValue": "banner", "sourceField2": "ferramenta", "sourceValue2": "hardcode", "sourceCondition": "equals", "targetField": "bloco", "targetFieldType": "dropdown", "allowedValues": ["tp", "md", "ft"] },
+    { "id": "bloco-hardcode-deck", "ruleType": "filter", "priority": 30, "sourceField": "formato", "sourceValue": "deck_de_vendas", "sourceField2": "ferramenta", "sourceValue2": "hardcode", "sourceCondition": "equals", "targetField": "bloco", "targetFieldType": "dropdown", "allowedValues": [], "explanation": "Hardcode + Deck de Vendas não tem Bloco/Posição aplicável." },
+    { "id": "bloco-hardcode-rodape", "ruleType": "filter", "priority": 30, "sourceField": "formato", "sourceValue": "banner_rodape", "sourceField2": "ferramenta", "sourceValue2": "hardcode", "sourceCondition": "equals", "targetField": "bloco", "targetFieldType": "dropdown", "allowedValues": [] },
+    { "id": "bloco-hardcode-aftercall", "ruleType": "filter", "priority": 30, "sourceField": "formato", "sourceValue": "aftercall", "sourceField2": "ferramenta", "sourceValue2": "hardcode", "sourceCondition": "equals", "targetField": "bloco", "targetFieldType": "dropdown", "allowedValues": [] },
+    { "id": "bloco-hardcode-raspadinha", "ruleType": "filter", "priority": 30, "sourceField": "formato", "sourceValue": "raspadinha", "sourceField2": "ferramenta", "sourceValue2": "hardcode", "sourceCondition": "equals", "targetField": "bloco", "targetFieldType": "dropdown", "allowedValues": [] },
+    { "id": "bloco-gerenciador-banner", "ruleType": "filter", "priority": 30, "sourceField": "formato", "sourceValue": "banner", "sourceField2": "ferramenta", "sourceValue2": "gerenciador", "sourceCondition": "equals", "targetField": "bloco", "targetFieldType": "dropdown", "allowedValues": ["tp", "md", "ft"] },
+    { "id": "bloco-gerenciador-splash", "ruleType": "filter", "priority": 30, "sourceField": "formato", "sourceValue": "splas_first_screen", "sourceField2": "ferramenta", "sourceValue2": "gerenciador", "sourceCondition": "equals", "targetField": "bloco", "targetFieldType": "dropdown", "allowedValues": [] },
+    { "id": "bloco-gerenciador-deck", "ruleType": "filter", "priority": 30, "sourceField": "formato", "sourceValue": "deck_de_vendas", "sourceField2": "ferramenta", "sourceValue2": "gerenciador", "sourceCondition": "equals", "targetField": "bloco", "targetFieldType": "dropdown", "allowedValues": [
+      "navegue_por_categoria", "navegue_por_categoria_vitrine", "banner_deck", "mais_ofertas",
+      "multiplas_vitrines", "ofertas_exclusivas", "menu_fabricante", "carrossel_aparelhos",
+      "carrossel_acessorio", "sessao_claro_flex", "carrossel_planos"
+    ] },
+    { "id": "bloco-gerenciador-superior", "ruleType": "filter", "priority": 30, "sourceField": "formato", "sourceValue": "banner_superior", "sourceField2": "ferramenta", "sourceValue2": "gerenciador", "sourceCondition": "equals", "targetField": "bloco", "targetFieldType": "dropdown", "allowedValues": [] },
+
+    { "id": "segmento-bl-show", "ruleType": "visibility", "priority": 10, "sourceField": "categoria", "sourceValue": "banda_larga", "sourceCondition": "equals", "targetField": "segmento_bl", "visibilityAction": "show" },
+
+    { "id": "pzn-warning", "ruleType": "warning", "priority": 10, "sourceField": "ferramenta", "sourceValue": "pzn", "sourceCondition": "equals", "targetField": "ferramenta", "warningTitle": "Atenção — Campanha PZN", "warningMessage": "Em campanhas PZN, os campos de Campaign são parametrizados pela equipe de Martech. Envie o link puro (sem Campaign) para o responsável pela campanha PZN preencher." },
+    { "id": "jb-warning", "ruleType": "warning", "priority": 10, "sourceField": "ferramenta", "sourceValue": "journey_builder", "sourceCondition": "equals", "targetField": "ferramenta", "warningTitle": "Atenção — Journey Builder", "warningMessage": "Em campanhas de Journey Builder, os campos de Campaign são parametrizados pela equipe de Martech responsável pelo disparo na jornada." },
+
+    { "id": "pzn-hide-parceiro", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "pzn", "sourceCondition": "equals", "targetField": "parceiro", "visibilityAction": "hide" },
+    { "id": "pzn-hide-categoria", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "pzn", "sourceCondition": "equals", "targetField": "categoria", "visibilityAction": "hide" },
+    { "id": "pzn-hide-regionalizacao", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "pzn", "sourceCondition": "equals", "targetField": "regionalizacao", "visibilityAction": "hide" },
+    { "id": "pzn-hide-segmentobl", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "pzn", "sourceCondition": "equals", "targetField": "segmento_bl", "visibilityAction": "hide" },
+    { "id": "pzn-hide-nomeoferta", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "pzn", "sourceCondition": "equals", "targetField": "nome_oferta", "visibilityAction": "hide" },
+    { "id": "pzn-hide-valor", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "pzn", "sourceCondition": "equals", "targetField": "valor", "visibilityAction": "hide" },
+    { "id": "pzn-hide-versao", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "pzn", "sourceCondition": "equals", "targetField": "versao", "visibilityAction": "hide" },
+
+    { "id": "jb-hide-parceiro", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "journey_builder", "sourceCondition": "equals", "targetField": "parceiro", "visibilityAction": "hide" },
+    { "id": "jb-hide-categoria", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "journey_builder", "sourceCondition": "equals", "targetField": "categoria", "visibilityAction": "hide" },
+    { "id": "jb-hide-regionalizacao", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "journey_builder", "sourceCondition": "equals", "targetField": "regionalizacao", "visibilityAction": "hide" },
+    { "id": "jb-hide-segmentobl", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "journey_builder", "sourceCondition": "equals", "targetField": "segmento_bl", "visibilityAction": "hide" },
+    { "id": "jb-hide-nomeoferta", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "journey_builder", "sourceCondition": "equals", "targetField": "nome_oferta", "visibilityAction": "hide" },
+    { "id": "jb-hide-valor", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "journey_builder", "sourceCondition": "equals", "targetField": "valor", "visibilityAction": "hide" },
+    { "id": "jb-hide-versao", "ruleType": "visibility", "priority": 20, "sourceField": "ferramenta", "sourceValue": "journey_builder", "sourceCondition": "equals", "targetField": "versao", "visibilityAction": "hide" },
+
+    { "id": "id-show-pzn", "ruleType": "visibility", "priority": 10, "sourceField": "ferramenta", "sourceValue": "pzn", "sourceCondition": "equals", "targetField": "id", "visibilityAction": "show" },
+    { "id": "id-show-jb", "ruleType": "visibility", "priority": 10, "sourceField": "ferramenta", "sourceValue": "journey_builder", "sourceCondition": "equals", "targetField": "id", "visibilityAction": "show" },
+    { "id": "id-required-pzn", "ruleType": "required", "priority": 10, "sourceField": "ferramenta", "sourceValue": "pzn", "sourceCondition": "equals", "targetField": "id", "requiredAction": "make_required" },
+    { "id": "id-required-jb", "ruleType": "required", "priority": 10, "sourceField": "ferramenta", "sourceValue": "journey_builder", "sourceCondition": "equals", "targetField": "id", "requiredAction": "make_required" }
+  ]
+}
